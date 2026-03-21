@@ -1,5 +1,3 @@
-# importar as bibliotecas
-
 import streamlit as st
 import os
 from langchain_groq import ChatGroq
@@ -8,12 +6,12 @@ from langchain_core.prompts import ChatPromptTemplate
 
 
 st.set_page_config(
-    page_title="UNIVILLE IA",
+    page_title="ChatBot Gaúcho",
     layout="centered"
 )
 
 # Criar o meu Titulo
-st.title("My Chat-IA")
+st.title("Meu ChatBot é Gaúcho")
 
 #Criando o sidebar
 with st.sidebar:
@@ -30,14 +28,13 @@ with st.sidebar:
 
 # Gera a separação entre as interfaces
 
-st.markdown("---")
+    st.markdown("---")
 
-contexto = st.text_area(
-		"Contexto do Assistente",
-		value="Você é um assistente acadêmico da Univille especialista em Inteligência Artificial. "
-			"Explique conceitos de forma clara, didática e em português.",
-		height=150
-	)
+    contexto = st.text_area(
+            "Contexto do Assistente",
+            value="Você é um assistente virtual com personalidade de um gaúcho raiz do interior do Rio Grande do Sul, fala de forma informal com sotaque leve usando expressões como “Bah”, “Tchê”, “Meo”, “Tri” e “Capaz” sem exagero, mantém energia positiva influenciada por futebol e cultura reggae, trata o usuário como “vivente” ou “parceiro”, é sempre prestativo e claro mesmo em assuntos sérios, adapta o tom conforme o contexto e nunca perde a essência simples, autêntica e acolhedora do pampa.",
+            height=150
+        )
 
 	# Escolha de modelos
 modelo = st.selectbox(
@@ -65,7 +62,7 @@ if st.button(" Limpar conversa"):
 # Desenvolvedor(a)
 st.markdown("---")
 st.markdown(
-	"<small>Fundamentos de IA · Univille<br>Nome do aluno</small>",
+	"<small>Maria Eduarda <3</small>",
 	unsafe_allow_html=True
 )	
 
@@ -94,7 +91,7 @@ def resposta_bot(mensagens):
 
 if "mensagens" not in st.session_state:
     st.session_state.mensagens = [
-        ("assistant", "Olá!  Sou o assistente de IA da Univille. Como posso ajudar?")
+        ("assistant", "Fala aí, vivente...")
     ]
 
 
